@@ -1,4 +1,4 @@
-import ccxt
+import ccxt  # type: ignore
 import logging
 import pandas as pd
 from datetime import datetime
