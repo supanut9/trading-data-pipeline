@@ -36,11 +36,21 @@ class TradingDB:
         df["symbol"] = symbol
         df["exchange"] = exchange
         df["timeframe"] = timeframe
-        
+
         # Explicitly order columns to match the table schema
-        column_order = ['symbol', 'exchange', 'timeframe', 'timestamp', 'open', 'high', 'low', 'close', 'volume']
+        column_order = [
+            "symbol",
+            "exchange",
+            "timeframe",
+            "timestamp",
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+        ]
         df = df[column_order]
-        
+
         # Use DuckDB's native pandas integration for fast insertion
         # We use a temp table to handle "UPSERT" logic (update if exists)
         self.conn.execute(
