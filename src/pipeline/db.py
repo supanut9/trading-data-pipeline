@@ -82,3 +82,8 @@ class TradingDB:
         """,
             [symbol, timeframe, limit],
         ).df()
+
+    def close(self):
+        """Close the database connection."""
+        if self.conn:
+            self.conn.close()
